@@ -1,0 +1,8 @@
+.List {
+  border: 1px solid black;
+  width: 20rem;
+  height: 30rem;
+  margin: 1rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}

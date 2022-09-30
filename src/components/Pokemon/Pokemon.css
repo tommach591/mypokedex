@@ -1,0 +1,21 @@
+.Pokemon {
+  border: 1px solid black;
+  height: 1.5rem;
+  width: 88.94%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 1rem;
+}
+
+.Pokemon:hover {
+  cursor: pointer;
+}
+
+.Active {
+  background-color: rgb(160, 210, 255);
+}
+
+.Inactive {
+  background-color: white;
+}
