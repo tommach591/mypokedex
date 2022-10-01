@@ -11,6 +11,9 @@ function App() {
     <div className="App">
       <Header />
       <div className="MainBox">
+        <div className="Lens">
+          <div className="Light" />
+        </div>
         <SearchBar setSearch={setSearch} />
         <Display search={search} />
       </div>

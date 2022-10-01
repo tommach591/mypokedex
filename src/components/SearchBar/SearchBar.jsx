@@ -8,7 +8,8 @@ function SearchBar({ setSearch }) {
   const boxRef = useRef(null);
 
   const adjustAndSet = () => {
-    setSearch(entry.toLowerCase().replace(" ", "-"));
+    setSearch(entry.toLowerCase().replaceAll(" ", "-"));
+    console.log(entry.toLowerCase().replaceAll(" ", "-"));
   };
 
   useEffect(() => {

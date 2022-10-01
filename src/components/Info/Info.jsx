@@ -58,7 +58,9 @@ function Info({ selected }) {
   const GetName = () => {
     return (
       <h3 className="PokemonName">
-        {selected.charAt(0).toUpperCase() + selected.slice(1)}
+        {`#${pokemonData.id} ${
+          selected.charAt(0).toUpperCase() + selected.slice(1)
+        }`}
       </h3>
     );
   };

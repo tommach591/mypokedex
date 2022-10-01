@@ -11,9 +11,33 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
+  border: 5px solid rgb(25, 25, 25);
+  border-radius: 0.5rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
   padding-left: 3rem;
   padding-right: 3rem;
+  background-color: rgb(232, 42, 50);
+}
+
+.Lens {
+  border: 1px solid black;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background-color: rgb(59, 210, 229);
+  position: absolute;
+  left: 35.5rem;
+  top: 6.75rem;
+}
+
+.Light {
+  border: 1px solid white;
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  left: 2rem;
+  top: 0.6rem;
 }

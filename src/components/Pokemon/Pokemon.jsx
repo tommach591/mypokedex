@@ -36,7 +36,7 @@ function Pokemon({ name, pkmnID, selected, setSelected, found }) {
       }}
       ref={ref}
     >
-      {`${pkmnID}. ${formatted}`}
+      {`${pkmnID}: ${formatted}`}
     </div>
   );
 }
