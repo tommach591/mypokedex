@@ -11,6 +11,7 @@ function List({ search, selected, setSelected }) {
     "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20"
   );
   const [list, setList] = useState([]);
+  const [searchList, setSearchList] = useState([]);
 
   const onScroll = () => {
     if (listInnerRef.current) {
@@ -30,7 +31,10 @@ function List({ search, selected, setSelected }) {
             <Pokemon
               key={pkmn.name}
               name={pkmn.name}
+              pkmnID={pkmn.url.slice(34, pkmn.url.length - 1)}
+              selected={selected}
               setSelected={setSelected}
+              found={false}
             />
           );
         });
@@ -40,16 +44,45 @@ function List({ search, selected, setSelected }) {
       });
     };
 
+    const findPokemon = () => {
+      getData(`https://pokeapi.co/api/v2/pokemon/${search}`).then((data) => {
+        if (data !== 0) {
+          let newList = [];
+          newList.push(
+            <Pokemon
+              key={data.name}
+              name={data.name}
+              pkmnID={data.species.url.slice(42, data.species.url.length - 1)}
+              selected={selected}
+              setSelected={setSelected}
+              found={true}
+            />
+          );
+          setSearchList(newList);
+        } else {
+          let newList = [];
+          newList.push(
+            <div className="NotFound" key={newList.length}>
+              <h2>Not Found</h2>
+            </div>
+          );
+          setSelected("");
+          setSearchList(newList);
+        }
+      });
+    };
+
     if (!lastUrl) {
       setUrl(nextUrl);
     }
 
-    if (url && lastUrl !== url) nextPokemonList();
-  }, [url, nextUrl, lastUrl, list, setSelected]);
+    if (search !== "") findPokemon();
+    else if (url && lastUrl !== url) nextPokemonList();
+  }, [url, nextUrl, lastUrl, list, search, selected, setSelected]);
 
   return (
     <div className="List" onScroll={onScroll} ref={listInnerRef}>
-      {list}
+      {search ? (searchList.length > 0 ? searchList : []) : list}
     </div>
   );
 }

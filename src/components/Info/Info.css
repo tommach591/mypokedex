@@ -3,4 +3,63 @@
   width: 20rem;
   height: 30rem;
   margin: 1rem;
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.PokemonName {
+  text-align: center;
+}
+
+.PokemonSprites {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Grid {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.Grid > img {
+  border: 1px solid black;
+  margin-top: -1px;
+  margin-left: -1px;
+}
+
+.PokemonTypes {
+  text-align: center;
+}
+
+.Type {
+  border: 1px solid black;
+  margin-top: -1px;
+  padding: 0.5rem;
+  width: 14rem;
+}
+
+.PokemonAbilities {
+  text-align: center;
+}
+
+.Ability {
+  border: 1px solid black;
+  margin-top: -1px;
+  padding: 0.5rem;
+  width: 14rem;
+}
+
+.PokemonMoves {
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.Move {
+  border: 1px solid black;
+  margin-top: -1px;
+  padding: 0.5rem;
+  width: 14rem;
 }

@@ -1,15 +1,24 @@
 import "./Pokemon.css";
 import { useState, useEffect, useRef } from "react";
 
-function Pokemon({ name, setSelected }) {
-  const [active, setActive] = useState(false);
+function Pokemon({ name, pkmnID, selected, setSelected, found }) {
+  const [active, setActive] = useState(found);
   const ref = useRef(null);
+
+  let formatted = "";
+  name.split("-").forEach((e) => {
+    formatted += e.charAt(0).toUpperCase() + e.slice(1) + " ";
+  });
 
   useEffect(() => {
     function handleClickOutside(event) {
       if (ref.current && !ref.current.contains(event.target)) {
         setActive(false);
       }
+    }
+
+    if (active && selected !== name) {
+      setSelected(name);
     }
 
     document.addEventListener("mousedown", handleClickOutside);
@@ -27,7 +36,7 @@ function Pokemon({ name, setSelected }) {
       }}
       ref={ref}
     >
-      {name.charAt(0).toUpperCase() + name.slice(1)}
+      {`${pkmnID}. ${formatted}`}
     </div>
   );
 }

@@ -2,21 +2,34 @@ import "./SearchBar.css";
 import MagnifyingGlass from "../../utils/magnifying_glass.svg";
 import { useState, useEffect, useRef } from "react";
 
-function SearchBar({ search, setSearch }) {
+function SearchBar({ setSearch }) {
+  const [entry, setEntry] = useState("");
   const [isInside, setIsInside] = useState(false);
   const boxRef = useRef(null);
+
+  const adjustAndSet = () => {
+    setSearch(entry.toLowerCase().replace(" ", "-"));
+  };
 
   useEffect(() => {
     const handleUserKeyPress = (event) => {
       const { key, keyCode } = event;
 
       if (isInside) {
-        if (keyCode === 32 || (keyCode >= 65 && keyCode <= 90)) {
-          setSearch(`${search}${key}`);
+        if (
+          keyCode === 32 ||
+          (keyCode >= 65 && keyCode <= 90) ||
+          (keyCode >= 48 && keyCode <= 57)
+        ) {
+          setEntry(`${entry}${key}`);
         }
         if (keyCode === 8) {
-          setSearch(search.slice(0, search.length - 1));
+          setEntry(entry.slice(0, entry.length - 1));
         }
+      }
+
+      if (keyCode === 13) {
+        adjustAndSet();
       }
     };
 
@@ -43,8 +56,13 @@ function SearchBar({ search, setSearch }) {
         setIsInside(true);
       }}
     >
-      <div className="Input">{search === "" ? "Search" : search}</div>
-      <div className="Search">
+      <div className="Input">{entry === "" ? "Search" : entry}</div>
+      <div
+        className="Search"
+        onClick={() => {
+          adjustAndSet();
+        }}
+      >
         <img src={MagnifyingGlass} alt="Q" />
       </div>
     </div>

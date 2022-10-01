@@ -6,3 +6,10 @@
   overflow-y: auto;
   overflow-x: hidden;
 }
+
+.NotFound {
+  text-align: center;
+  margin-top: 50%;
+  border: 1px solid white;
+  width: 100%;
+}

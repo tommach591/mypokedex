@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Header />
       <div className="MainBox">
-        <SearchBar search={search} setSearch={setSearch} />
+        <SearchBar setSearch={setSearch} />
         <Display search={search} />
       </div>
     </div>

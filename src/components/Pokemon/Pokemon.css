@@ -1,11 +1,13 @@
 .Pokemon {
   border: 1px solid black;
   height: 1.5rem;
-  width: 88.94%;
+  width: 100%;
   display: flex;
   justify-content: left;
   align-items: center;
   padding: 1rem;
+  margin-left: -1px;
+  margin-top: -1px;
 }
 
 .Pokemon:hover {
