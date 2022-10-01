@@ -56,13 +56,12 @@ function Info({ selected }) {
   };
 
   const GetName = () => {
-    return (
-      <h3 className="PokemonName">
-        {`#${pokemonData.id} ${
-          selected.charAt(0).toUpperCase() + selected.slice(1)
-        }`}
-      </h3>
-    );
+    let formatted = "";
+    selected.split("-").forEach((e) => {
+      formatted += e.charAt(0).toUpperCase() + e.slice(1) + " ";
+    });
+
+    return <h3 className="PokemonName">{`#${pokemonData.id} ${formatted}`}</h3>;
   };
 
   const GetType = () => {
